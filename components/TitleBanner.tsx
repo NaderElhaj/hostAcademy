@@ -2,6 +2,7 @@ import React from "react";
 interface TitleBannerProps {
   title: string;
   descritpion: string;
+  flex?: boolean; // Make flex optional if it's not always needed
 }
 const TitleBanner = ({ descritpion, title }: TitleBannerProps) => {
   return (

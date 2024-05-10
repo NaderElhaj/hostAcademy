@@ -7,12 +7,14 @@ interface ButtonProps {
   shadowed?: boolean;
   icon?: ReactElement | undefined;
   fullWidth?: boolean;
-  backgroundColor: "orange" | "white" | "gray";
+  backgroundColor?: "orange" | "white" | "gray";
   fontSize: "small" | "medium" | "large";
   classes?: string;
   handleClick?: () => void;
   textColor: "black" | "white";
   textCenter?: boolean;
+  children?: ReactElement;
+  isDiv: boolean;
 }
 const Button = ({
   label,
@@ -26,15 +28,17 @@ const Button = ({
   handleClick,
   textColor,
   textCenter,
+  isDiv,
+  children,
 }: ButtonProps) => {
   function getColorCode(color: "orange" | "white" | "gray") {
     switch (color) {
       case "orange":
-        return "bg-[#FFAF20]";
+        return "bg-[#FFAF20] hover:bg-[#ffaf20]/60";
       case "white":
-        return "bg-[#FFFFFF]";
+        return "bg-[#FFFFFF] hover:bg-[#ffffff]/60";
       case "gray":
-        return "bg-[#808080]";
+        return "bg-[#808080] bg-[#808080]/60";
     }
   }
   function getTextColor(color: "white" | "black") {
@@ -55,9 +59,10 @@ const Button = ({
         return "text-[25px]";
     }
   }
-  const DefaultClassNames = "rounded-[10px] px-6 py-[10px]";
+  const DefaultClassNames =
+    "rounded-[10px] px-6 py-[10px] transition duration-300 ease-in-out ";
   const textClassNames = `${getFontSize(fontSize)} ${getTextColor(textColor)}`;
-  const backgroundColorClassNames = `${getColorCode(backgroundColor)}`;
+  const backgroundColorClassNames = `${getColorCode(backgroundColor || "gray")}`;
   return (
     <>
       <div className="py-6 px-4">
@@ -94,6 +99,24 @@ const Button = ({
             {icon && icon}
             <span className={classNames(textCenter && "pl-4")}>{label}</span>
           </button>
+        )}
+        {isDiv && (
+          <div
+            className={classNames(
+              DefaultClassNames,
+              textClassNames,
+              backgroundColorClassNames,
+              classes,
+              fullWidth === true && "w-full",
+              shadowed === true && "shadow-black/25 shadow-lg",
+              icon && "flex items-center  ",
+              "relative  "
+            )}
+          >
+            {icon && icon}
+            <span>{label}</span>
+            <div className={classNames(textCenter && "pl-4")}>{children}</div>
+          </div>
         )}
       </div>
     </>

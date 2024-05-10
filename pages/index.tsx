@@ -12,7 +12,8 @@ import Form from "@/views/Form/Form";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentStep, setCurrentStep] = useState(1);
+
   return (
     <div className="flex ">
       <Navbar currentStep={currentStep} />

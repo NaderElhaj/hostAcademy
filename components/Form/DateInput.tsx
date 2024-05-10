@@ -4,16 +4,14 @@ interface TextInputProps {
   placeholder: string;
   value: string;
   handleChange: any;
-  type?: "text" | "number" | "date" | "tel";
   name: string;
   error?: string;
 }
-const TextInput = ({
+const DateInput = ({
   handleChange,
   label,
   placeholder,
   value,
-  type,
   name,
   error,
 }: TextInputProps) => {
@@ -21,7 +19,7 @@ const TextInput = ({
     <div className="w-full">
       <p className="font-roboto text-[#868686]">{label}</p>
       <input
-        type={type || "text"}
+        type="date"
         value={value}
         onChange={(e) => handleChange(e.target.value)}
         placeholder={placeholder}
@@ -33,4 +31,4 @@ const TextInput = ({
   );
 };
 
-export default TextInput;
+export default DateInput;

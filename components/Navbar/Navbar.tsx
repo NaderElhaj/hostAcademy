@@ -10,7 +10,7 @@ interface NavBarProps {
 }
 const Navbar = ({ currentStep }: NavBarProps) => {
   return (
-    <div className="max-w-[400px] w-full bg-[#10455B] h-screen  flex-col px-7 py-14 hidden lg:flex ">
+    <div className="max-w-[400px] w-full bg-[#10455B] min-h-screen   flex-col px-7 py-14 hidden lg:flex ">
       <div className="relative mx-auto w-[78px] h-[70px]">
         <Image
           src={"/images/Logo.png"}
