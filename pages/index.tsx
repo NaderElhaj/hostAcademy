@@ -12,7 +12,7 @@ import Form from "@/views/Form/Form";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const [currentStep, setCurrentStep] = useState(1);
+  const [currentStep, setCurrentStep] = useState(0);
 
   return (
     <div className="flex ">
