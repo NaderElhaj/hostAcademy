@@ -81,11 +81,6 @@ const ProfileInfo = ({ setState, setStep }: ProfileInfoProps) => {
       setErrors(errorsObj);
     }
   };
-  const handleChange = (e: any) => {
-    const { name, value } = e.target;
-    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
-    validateField(name, value);
-  };
 
   const errorClassName = "text-red-400";
   return (

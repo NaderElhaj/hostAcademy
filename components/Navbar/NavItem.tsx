@@ -8,15 +8,14 @@ interface NavbarProps {
 }
 const NavItem = ({ label, href, isActive }: NavbarProps) => {
   return (
-    <Link
-      href={href}
+    <span
       className={classNames(
         "font-roboto font-medium text-base",
         isActive ? " text-[#ffaf20]" : "text-[#262625]"
       )}
     >
       {label}
-    </Link>
+    </span>
   );
 };
 

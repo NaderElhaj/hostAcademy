@@ -14,7 +14,7 @@ interface ButtonProps {
   textColor: "black" | "white";
   textCenter?: boolean;
   children?: ReactElement;
-  isDiv: boolean;
+  isDiv?: boolean;
 }
 const Button = ({
   label,
@@ -46,7 +46,7 @@ const Button = ({
       case "black":
         return "text-[#000000]";
       case "white":
-        return "text-[#444444]";
+        return "text-[#ffffff]";
     }
   }
   function getFontSize(fontSize: "small" | "medium" | "large") {

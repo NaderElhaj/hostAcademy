@@ -14,32 +14,32 @@ export const navItems: NavItem[] = [
     {
       href: "/",
       label: "STEP 01: ABOUT YOU",
-      step  : 0,
+      step  : 1,
       subItems :  [
         {
             href :"/",
             label :"Profile  information",
-            step :0
+            step :1
         },
         {
             href :"/photo",
             label :"Profile  photo",
-            step :1
+            step :2
         },
         {
             href :"/location",
             label :"Location",
-            step :2
+            step :3
         },
         {
             href :"/languages",
             label :"Languages",
-            step :3
+            step :4
         },
         {
             href :"/passions",
             label :"Passions",
-            step :4
+            step :5
         },
       ]
 
@@ -47,27 +47,27 @@ export const navItems: NavItem[] = [
     {
       href: "/step-2",
       label: "STEP 02: What we're looking for",
-      step : 5,
+      step : 6,
       subItems :  [
         {
             href :"/",
             label :"Overview",
-            step :5
+            step :6
         },
         {
             href :"/expertise",
             label :"Expertice",
-            step :6
+            step :7
         },
         {
             href :"/access",
             label :"Access",
-            step: 7
+            step: 8
         },
         {
             href :"/connection",
             label :"Connection",
-            step :8
+            step :9
         },
     
       ]
@@ -76,42 +76,42 @@ export const navItems: NavItem[] = [
     {
       href: "/step-3",
       label: "STEP 03: Your Idea",
-      step :9,
+      step :10,
       subItems :  [
         {
             href :"/",
             label :"Your theme",
-            step :9
+            step :10
         },
         {
             href :"/title",
             label :"Title",
-            step :10
+            step :11
         },
         {
             href :"/what-we-do",
             label :"What we'll do",
-            step :11
+            step :12
         },
         {
             href :"/what-i-provide",
             label :"What I'll provide",
-            step :12
+            step :13
         },
         {
             href :"/guest",
             label :"Guest Requirements",
-            step :13
+            step :14
         },
         {
             href :"/localisation",
             label :"Localisation",
-            step :14
+            step :15
         },
         {
             href :"/photos",
             label :"Photos",
-            step :15
+            step :16
         },
     
       ]
@@ -120,32 +120,32 @@ export const navItems: NavItem[] = [
     {
       href: "/step-4",
       label: "STEP 04: Settings",
-      step :16,
+      step :17,
       subItems :  [
         {
             href :"/",
             label :"Group size",
-            step :16
+            step :17
         },
         {
             href :"/availability",
             label :"Availability",
-            step :17
+            step :18
         },
         {
             href :"/pricing",
             label :"Guest Pricing",
-            step :18
+            step :19
         },
         {
             href :"/bookings",
             label :"Bookings",
-            step :19
+            step :20
         },
         {
             href :"/review",
             label :"Review and Submit",
-            step :20
+            step :21
         },
  
     

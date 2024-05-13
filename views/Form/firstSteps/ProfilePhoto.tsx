@@ -9,8 +9,13 @@ import * as yup from "yup";
 
 interface ProfileInfoProps {
   setStep: Dispatch<SetStateAction<number>>;
+  setState: Dispatch<
+    SetStateAction<{
+      image: string;
+    }>
+  >;
 }
-const ProfilePhoto = ({ setStep }: ProfileInfoProps) => {
+const ProfilePhoto = ({ setStep, setState }: ProfileInfoProps) => {
   const schema = yup.object().shape({
     image: yup.string().required("image is required"),
   });
@@ -24,6 +29,7 @@ const ProfilePhoto = ({ setStep }: ProfileInfoProps) => {
     try {
       await schema.validate(formData, { abortEarly: false });
       console.log("Form is valid, submit data:", formData);
+      setState(formData);
 
       setStep((prev) => prev + 1);
 

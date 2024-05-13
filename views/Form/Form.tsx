@@ -1,11 +1,16 @@
 "use client ";
 import TextInput from "@/components/Form/TextInput";
 import React, { Dispatch, SetStateAction, useState } from "react";
-import ProfileInfo from "./ProfileInfo";
-import ProfilePhoto from "./ProfilePhoto";
-import LocationInfo from "./LocationInfo";
-import Languages from "./Languages";
-import PassionsPage from "./PassionsPage";
+import ProfileInfo from "./firstSteps/ProfileInfo";
+import ProfilePhoto from "./firstSteps/ProfilePhoto";
+import LocationInfo from "./firstSteps/LocationInfo";
+import Languages from "./firstSteps/Languages";
+import PassionsPage from "./firstSteps/PassionsPage";
+import Overview from "./secondStep/Overview";
+import Expertice from "./secondStep/Expertice";
+import Access from "./secondStep/Access";
+import Connection from "./secondStep/Connection";
+
 interface FormProps {
   step: number;
   setStep: Dispatch<SetStateAction<number>>;
@@ -19,19 +24,66 @@ const Form = ({ step, setStep }: FormProps) => {
     email: "",
     phone: "",
   });
+  const [profilePhoto, setProfilePhoto] = useState({
+    image: "",
+  });
+  const [locationInfo, setLocationInfo] = useState({
+    country: "",
+    city: "",
+    years: "",
+    adress: "",
+  });
+  const [languages, setLanguages] = useState({
+    languages: "",
+    englishLevel: "",
+  });
+  const [passions, setPassions] = useState({
+    secondPassion: "",
+    bestThingAboutCity: "",
+    description: "",
+  });
+  const [expertice, setExpertice] = useState({
+    activityHosting: "",
+    licence: "",
+  });
+  const [access, setAccess] = useState({
+    whatYouDo: "",
+  });
+  const [connection, setConnection] = useState({
+    likeYou: "",
+  });
 
+  const allForms = {
+    profileInfo,
+    profilePhoto,
+    locationInfo,
+    languages,
+    passions,
+    expertice,
+  };
+
+  step > 4 && console.log(allForms);
   const getActiveComponent = (step: number) => {
     switch (step) {
-      case 0:
-        return <ProfileInfo setStep={setStep} setState={setProfileInfo} />;
       case 1:
-        return <ProfilePhoto setStep={setStep} />;
+        return <ProfileInfo setStep={setStep} setState={setProfileInfo} />;
       case 2:
-        return <LocationInfo setStep={setStep} />;
+        return <ProfilePhoto setStep={setStep} setState={setProfilePhoto} />;
       case 3:
-        return <Languages setStep={setStep} />;
+        return <LocationInfo setStep={setStep} setState={setLocationInfo} />;
       case 4:
-        return <PassionsPage setStep={setStep} />;
+        return <Languages setStep={setStep} setState={setLanguages} />;
+
+      case 5:
+        return <PassionsPage setStep={setStep} setState={setPassions} />;
+      case 6:
+        return <Overview setStep={setStep} />;
+      case 7:
+        return <Expertice setStep={setStep} setState={setExpertice} />;
+      case 8:
+        return <Access setStep={setStep} setState={setAccess} />;
+      case 9:
+        return <Connection setStep={setStep} setState={setConnection} />;
     }
   };
 

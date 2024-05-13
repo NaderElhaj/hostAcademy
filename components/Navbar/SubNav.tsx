@@ -8,8 +8,7 @@ interface SubNavProps {
 }
 const SubNav = ({ href, label, isActive }: SubNavProps) => {
   return (
-    <Link
-      href={href}
+    <span
       className={classNames(
         "font-roboto font-medium text-lg text-[#ffffff] border-l-4 pl-6 py-[10px] ",
         isActive
@@ -18,7 +17,7 @@ const SubNav = ({ href, label, isActive }: SubNavProps) => {
       )}
     >
       {label}
-    </Link>
+    </span>
   );
 };
 
