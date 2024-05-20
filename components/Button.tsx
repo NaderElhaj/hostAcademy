@@ -1,6 +1,7 @@
 import { classNames } from "@/utils/ClassNames";
 import Link from "next/link";
 import React, { ReactElement } from "react";
+import RightArrow from "./assets/RightArrow";
 interface ButtonProps {
   label: string;
   link?: string;
@@ -15,6 +16,7 @@ interface ButtonProps {
   textCenter?: boolean;
   children?: ReactElement;
   isDiv?: boolean;
+  hasNav?: boolean;
 }
 const Button = ({
   label,
@@ -30,13 +32,14 @@ const Button = ({
   textCenter,
   isDiv,
   children,
+  hasNav,
 }: ButtonProps) => {
   function getColorCode(color: "orange" | "white" | "gray") {
     switch (color) {
       case "orange":
         return "bg-[#FFAF20] hover:bg-[#ffaf20]/60";
       case "white":
-        return "bg-[#FFFFFF] hover:bg-[#ffffff]/60";
+        return "bg-[#FFFFFF] hover:bg[#000000]/20";
       case "gray":
         return "bg-[#808080] bg-[#808080]/60";
     }
@@ -44,7 +47,7 @@ const Button = ({
   function getTextColor(color: "white" | "black") {
     switch (color) {
       case "black":
-        return "text-[#000000]";
+        return "text-[#000000] hover:opacity-50";
       case "white":
         return "text-[#ffffff]";
     }
@@ -59,6 +62,7 @@ const Button = ({
         return "text-[25px]";
     }
   }
+
   const DefaultClassNames =
     "rounded-[10px] px-6 py-[10px] transition duration-300 ease-in-out ";
   const textClassNames = `${getFontSize(fontSize)} ${getTextColor(textColor)}`;
@@ -92,12 +96,18 @@ const Button = ({
               fullWidth === true && "w-full",
               shadowed === true && "shadow-black/25 shadow-lg",
               icon && "flex items-center  ",
-              ""
+              hasNav && "relative",
+              "relative"
             )}
             onClick={handleClick}
           >
             {icon && icon}
             <span className={classNames(textCenter && "pl-4")}>{label}</span>
+            {hasNav && (
+              <div className="absolute right-5 top-1/2  -translate-y-1/2">
+                <RightArrow />
+              </div>
+            )}
           </button>
         )}
         {isDiv && (

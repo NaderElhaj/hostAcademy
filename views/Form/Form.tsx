@@ -10,6 +10,8 @@ import Overview from "./secondStep/Overview";
 import Expertice from "./secondStep/Expertice";
 import Access from "./secondStep/Access";
 import Connection from "./secondStep/Connection";
+import Theme from "./thirdStep/Theme";
+import Title from "./thirdStep/Title";
 
 interface FormProps {
   step: number;
@@ -52,6 +54,11 @@ const Form = ({ step, setStep }: FormProps) => {
   const [connection, setConnection] = useState({
     likeYou: "",
   });
+  const [themes, setThemes] = useState({
+    firstTheme: "",
+    secondTheme: "",
+  });
+  const [title, setTitle] = useState("");
 
   const allForms = {
     profileInfo,
@@ -84,6 +91,12 @@ const Form = ({ step, setStep }: FormProps) => {
         return <Access setStep={setStep} setState={setAccess} />;
       case 9:
         return <Connection setStep={setStep} setState={setConnection} />;
+      case 10:
+        return <Theme setStep={setStep} setState={setThemes} />;
+      case 11:
+        return <Title setStep={setStep} setState={setTitle} />;
+      case 12:
+        return <WhatWeDo setStep={setStep} setState={setTitle} />;
     }
   };
 

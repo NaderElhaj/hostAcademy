@@ -5,6 +5,7 @@ interface TextInputProps {
   value: string;
   handleChange: any;
   error?: string;
+  description?: string;
 }
 const OutlinedTextInput = ({
   handleChange,
@@ -12,10 +13,16 @@ const OutlinedTextInput = ({
   placeholder,
   value,
   error,
+  description,
 }: TextInputProps) => {
   return (
     <div className="w-full">
-      <p className="font-roboto text-[#000000]">{label}</p>
+      <p className="font-roboto text-[#000000] text-[22px] font-bold">
+        {label}
+      </p>
+      <p className="font-roboto text-[#000000] text-[20px] font-regular">
+        {description}
+      </p>
       <input
         type="text"
         value={value}

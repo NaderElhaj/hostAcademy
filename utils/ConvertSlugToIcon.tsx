@@ -9,7 +9,14 @@ import NatureThemeIcon from "@/components/assets/NatureThemeIcon";
 import ShoppingThemeIcon from "@/components/assets/ShoppingThemeIcon";
 import SportsThemeIcon from "@/components/assets/SportsThemeIcon";
 import WellnessThemeIcon from "@/components/assets/WellnessThemeIcon";
-import { ThemeIconName } from "@/constant/themesList";
+import {
+  ThemeIconName,
+  animals,
+  artDesign,
+  culturesSociety,
+  drink,
+  entertaiment,
+} from "@/constant/themesList";
 
 export const ConvertSlugToIcon = (slug: ThemeIconName) => {
   switch (slug) {
