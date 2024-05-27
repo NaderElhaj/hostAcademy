@@ -6,6 +6,7 @@ interface RadioInputProps {
   selectedOption: number | undefined;
   handleChange: (e: any) => void;
   error?: null | string;
+  description?: string;
 }
 const RadioInput = ({
   handleChange,
@@ -13,6 +14,7 @@ const RadioInput = ({
   error,
   options,
   selectedOption,
+  description,
 }: RadioInputProps) => {
   return (
     <fieldset>
@@ -22,6 +24,11 @@ const RadioInput = ({
           Select one option{" "}
         </span>
       </legend>
+      {description && (
+        <p className="font-roboto text-[#000000] text-[20px] font-regular">
+          {description}
+        </p>
+      )}
       <div className={classNames("mt-2")}>
         {options.map((item, index) => (
           <div className="flex  space-x-2 items-center" key={index}>

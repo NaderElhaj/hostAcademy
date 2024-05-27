@@ -12,6 +12,10 @@ import Access from "./secondStep/Access";
 import Connection from "./secondStep/Connection";
 import Theme from "./thirdStep/Theme";
 import Title from "./thirdStep/Title";
+import WhatWeDo from "./thirdStep/WhatWeDo";
+import WhatWeProvide from "./thirdStep/WhatWeProvide";
+import GuestRequirments from "./thirdStep/GuestRequirments";
+import Localisation from "./thirdStep/Localisation";
 
 interface FormProps {
   step: number;
@@ -59,6 +63,28 @@ const Form = ({ step, setStep }: FormProps) => {
     secondTheme: "",
   });
   const [title, setTitle] = useState("");
+  const [whatWeDo, setWhatWeDo] = useState({
+    description: "",
+    experienceDuration: "",
+  });
+  const [whatWeProvide, setWhatWeProvide] = useState({
+    firstSevice: "",
+    secondService: "",
+  });
+  const [guestRequirements, setGuestRequirments] = useState({
+    minimumAge: "",
+    accessibilty: "",
+    activityLevel: "",
+    skillLevel: "",
+  });
+  const [localisation, setLocatlisation] = useState({
+    country: "",
+    street: "",
+    city: "",
+    stateAdress: "",
+    zipCode: "",
+  });
+  console.log(localisation);
 
   const allForms = {
     profileInfo,
@@ -67,7 +93,14 @@ const Form = ({ step, setStep }: FormProps) => {
     languages,
     passions,
     expertice,
+    access,
+    connection,
+    themes,
+    title,
+    whatWeDo,
+    whatWeProvide,
   };
+  console.log(guestRequirements);
 
   step > 4 && console.log(allForms);
   const getActiveComponent = (step: number) => {
@@ -96,7 +129,15 @@ const Form = ({ step, setStep }: FormProps) => {
       case 11:
         return <Title setStep={setStep} setState={setTitle} />;
       case 12:
-        return <WhatWeDo setStep={setStep} setState={setTitle} />;
+        return <WhatWeDo setStep={setStep} setState={setWhatWeDo} />;
+      case 13:
+        return <WhatWeProvide setStep={setStep} setState={setWhatWeProvide} />;
+      case 14:
+        return (
+          <GuestRequirments setStep={setStep} setState={setGuestRequirments} />
+        );
+      case 15:
+        return <Localisation setStep={setStep} setState={setLocatlisation} />;
     }
   };
 

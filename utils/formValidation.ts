@@ -29,11 +29,11 @@ export const handleSubmit = async (e,formData,setState,setStep,setErrors,schema)
 
       // Add your form submission logic here
     } catch (validationErrors) {
-      // const errorsObj = validationErrors.inner.reduce((acc, err) => {
-      //   acc[err.path] = err.message;
-      //   return acc;
-      // }, {});
-      // setErrors(errorsObj);
-      console.log(validationErrors)
+      const errorsObj = validationErrors.inner.reduce((acc, err) => {
+        acc[err.path] = err.message;
+        return acc;
+      }, {});
+      setErrors(errorsObj);
+      // console.log(validationErrors)
     }
   };
