@@ -23,14 +23,20 @@ const OutlinedTextInput = ({
   hasShadow,
 }: TextInputProps) => {
   return (
-    <div className={`  ${minWidth ? "flex justify-center" : "w-full"} py-2 `}>
+    <div
+      className={classNames(
+        `  ${minWidth ? "flex items-center flex-col" : "w-full"} py-2 `
+      )}
+    >
       {label && (
         <p className="font-roboto text-[#000000] text-[22px] font-bold">
           {label}
         </p>
       )}
       {description && (
-        <p className="font-roboto text-[#000000] text-[20px] font-regular">
+        <p
+          className={`font-roboto text-[#000000] text-[20px] font-regular ${minWidth && "max-w-96 text-center"}`}
+        >
           {description}
         </p>
       )}
@@ -40,7 +46,7 @@ const OutlinedTextInput = ({
         onChange={(e) => handleChange(e.target.value)}
         placeholder={placeholder}
         className={classNames(
-          ` mt-3 ${minWidth ? "" : "w-full"}  bg-[#ffffff] rounded-lg px-5 py-[15px] outline-none    text-[#8c8ca1] font-medium font-roboto placeholder:text-[#8c8ca1] placeholder:font-medium placeholder:font-roboto border border-[#686868]`,
+          ` mt-3 ${minWidth ? "w-[300px]" : "w-full"}  bg-[#ffffff] rounded-lg px-5 py-[15px] outline-none text-[#8c8ca1] font-medium font-roboto placeholder:text-[#8c8ca1] placeholder:font-medium placeholder:font-roboto border border-[#686868]`,
           hasShadow && "shadow-md shadow-black/40"
         )}
       />

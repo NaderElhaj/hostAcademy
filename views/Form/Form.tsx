@@ -16,6 +16,8 @@ import WhatWeDo from "./thirdStep/WhatWeDo";
 import WhatWeProvide from "./thirdStep/WhatWeProvide";
 import GuestRequirments from "./thirdStep/GuestRequirments";
 import Localisation from "./thirdStep/Localisation";
+import GroupSize from "./fourthStep/GroupSize";
+import GuestPricing from "./fourthStep/GuestPricing";
 
 interface FormProps {
   step: number;
@@ -84,8 +86,18 @@ const Form = ({ step, setStep }: FormProps) => {
     stateAdress: "",
     zipCode: "",
   });
-  console.log(localisation);
+  const [groupSize, setGroupSize] = useState<{
+    publicGroup: number | null;
+    privateGroup: number | null;
+  }>({
+    publicGroup: null,
+    privateGroup: null,
+  });
 
+  const [groupPricing, setGroupPricing] = useState({
+    individualRate: 0,
+    perInstanceRate: 0,
+  });
   const allForms = {
     profileInfo,
     profilePhoto,
@@ -100,9 +112,9 @@ const Form = ({ step, setStep }: FormProps) => {
     whatWeDo,
     whatWeProvide,
   };
-  console.log(guestRequirements);
 
-  step > 4 && console.log(allForms);
+  console.log(groupSize);
+  // step > 4 && console.log(allForms);
   const getActiveComponent = (step: number) => {
     switch (step) {
       case 1:
@@ -138,6 +150,10 @@ const Form = ({ step, setStep }: FormProps) => {
         );
       case 15:
         return <Localisation setStep={setStep} setState={setLocatlisation} />;
+      case 16:
+        return <GroupSize setStep={setStep} setState={setGroupSize} />;
+      case 17:
+        return <GuestPricing setStep={setStep} setState={setGroupPricing} />;
     }
   };
 
