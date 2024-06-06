@@ -18,6 +18,7 @@ import GuestRequirments from "./thirdStep/GuestRequirments";
 import Localisation from "./thirdStep/Localisation";
 import GroupSize from "./fourthStep/GroupSize";
 import GuestPricing from "./fourthStep/GuestPricing";
+import ReviewAndSubmit from "./fourthStep/ReviewAndSubmit";
 
 interface FormProps {
   step: number;
@@ -154,6 +155,8 @@ const Form = ({ step, setStep }: FormProps) => {
         return <GroupSize setStep={setStep} setState={setGroupSize} />;
       case 17:
         return <GuestPricing setStep={setStep} setState={setGroupPricing} />;
+      case 18:
+        return <ReviewAndSubmit />;
     }
   };
 

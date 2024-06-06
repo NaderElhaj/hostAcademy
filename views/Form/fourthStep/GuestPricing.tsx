@@ -1,7 +1,11 @@
+import Button from "@/components/Button";
 import PricingInput from "@/components/Form/PricingInput";
 import StepTitle from "@/components/StepTitle";
 import TitleBanner from "@/components/TitleBanner";
+import { handleSubmit } from "@/utils/formValidation";
 import React, { Dispatch, SetStateAction, useState } from "react";
+import * as yup from "yup";
+
 interface GuestPricingProps {
   setStep: Dispatch<SetStateAction<number>>;
   setState: Dispatch<
@@ -11,8 +15,16 @@ interface GuestPricingProps {
 const GuestPricing = ({ setStep, setState }: GuestPricingProps) => {
   const [individualRate, setIndividualRate] = useState(0);
   const [perInstanceRate, setPerInstanceRate] = useState(0);
-  console.log(individualRate);
-  console.log(perInstanceRate);
+  const [error, setErrors] = useState({});
+  console.log(error);
+  const schema = yup.object().shape({
+    individualRate: yup.number().required("This Field is Required").min(1),
+    perInstanceRate: yup.number().required("This Field is Required").min(1),
+  });
+  const formData = {
+    individualRate,
+    perInstanceRate,
+  };
   return (
     <div>
       <StepTitle title="Guest Pricing" />
@@ -28,6 +40,7 @@ const GuestPricing = ({ setStep, setState }: GuestPricingProps) => {
           value={individualRate}
           handleChange={(e) => setIndividualRate(e)}
           hasEstimation
+          error={error.individualRate}
         />
         <PricingInput
           label="Per instance: Private groups"
@@ -35,11 +48,23 @@ const GuestPricing = ({ setStep, setState }: GuestPricingProps) => {
           name="perInstance"
           value={perInstanceRate}
           handleChange={(e) => setPerInstanceRate(e)}
+          error={error.perInstanceRate}
         />
-        <p className="max-w-[340px] text-base">
+        <p className="max-w-[340px] text-base font-roboto">
           Guests who book for a private group will pay the total per person
           pricing if that’s higher than your minimum price.
         </p>
+      </div>
+      <div className="absolute bottom-24 right-10">
+        <Button
+          backgroundColor="orange"
+          fontSize="medium"
+          textColor="white"
+          handleClick={(e) =>
+            handleSubmit(e, formData, setState, setStep, setErrors, schema)
+          }
+          label="Continue"
+        />
       </div>
     </div>
   );
