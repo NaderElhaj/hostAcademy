@@ -6,7 +6,7 @@ import { handleFinalSubmit } from "@/utils/formValidation";
 import React, { useState } from "react";
 import * as yup from "yup";
 
-const ReviewAndSubmit = () => {
+const ReviewAndSubmit = (finalForm: any) => {
   const [option, setOption] = useState(null);
   const [localLaw, setLocalLaw] = useState(false);
   const [description, setDescription] = useState(false);
@@ -169,7 +169,9 @@ const ReviewAndSubmit = () => {
           backgroundColor="orange"
           fontSize="medium"
           textColor="white"
-          handleClick={(e) => handleFinalSubmit(e, formData, setErrors, schema)}
+          handleClick={(e) =>
+            handleFinalSubmit(e, formData, setErrors, schema, finalForm)
+          }
           label="Continue"
         />
       </div>

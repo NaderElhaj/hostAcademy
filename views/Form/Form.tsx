@@ -100,7 +100,14 @@ const Form = ({ step, setStep }: FormProps) => {
     perInstanceRate: 0,
   });
   const allForms = {
-    profileInfo,
+    profileInfo: {
+      firstName: profileInfo.firstName,
+      lastName: profileInfo.lastName,
+      birthday: profileInfo.birthday,
+      nationality: profileInfo.nationality,
+      email: profileInfo.email,
+      phone: profileInfo.phone,
+    },
     profilePhoto,
     locationInfo,
     languages,
@@ -112,9 +119,12 @@ const Form = ({ step, setStep }: FormProps) => {
     title,
     whatWeDo,
     whatWeProvide,
+    guestRequirements,
+    localisation,
+    groupPricing,
+    groupSize,
   };
 
-  console.log(groupSize);
   // step > 4 && console.log(allForms);
   const getActiveComponent = (step: number) => {
     switch (step) {
@@ -156,7 +166,7 @@ const Form = ({ step, setStep }: FormProps) => {
       case 17:
         return <GuestPricing setStep={setStep} setState={setGroupPricing} />;
       case 18:
-        return <ReviewAndSubmit />;
+        return <ReviewAndSubmit finalForm={allForms} />;
     }
   };
 
